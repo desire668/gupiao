@@ -1,0 +1,469 @@
+.page {
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px 120px;
+}
+
+.shell {
+  display: flex;
+  width: 100%;
+  max-width: 980px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.heroCard,
+.boardCard {
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+.heroCard {
+  padding: 24px;
+}
+
+.heroHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.heroTitle {
+  font-size: clamp(30px, 6vw, 48px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #111827;
+}
+
+.pageBadge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #fff7ed;
+  color: #c2410c;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.refreshButton,
+.retryButton {
+  height: 42px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: #fff;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.refreshButton:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+
+.refreshButton:hover,
+.retryButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(249, 115, 22, 0.22);
+}
+
+.heroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 18px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.tabRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.tab,
+.activeTab {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 16px 18px;
+  text-align: left;
+  background: #f8fafc;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+.tab small,
+.activeTab small {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.activeTab {
+  border-color: rgba(239, 68, 68, 0.15);
+  background: linear-gradient(135deg, rgba(255, 237, 213, 0.95), rgba(255, 255, 255, 0.95));
+  box-shadow: inset 0 0 0 1px rgba(251, 146, 60, 0.12);
+}
+
+.summaryRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.summaryCard {
+  border-radius: 22px;
+  background: #f8fafc;
+  padding: 16px;
+}
+
+.summaryCard span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.summaryCard strong {
+  display: block;
+  margin-top: 8px;
+  color: #111827;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.boardCard {
+  padding: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.sectionHeader h2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.sectionHint {
+  max-width: 360px;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.pageInfoRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-bottom: 16px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sectorCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.96));
+  padding: 16px 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.sectorCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(251, 146, 60, 0.35);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+.sectorMain {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.sectorIcon {
+  display: flex;
+  height: 44px;
+  width: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: #fff7ed;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.sectorMain h3 {
+  overflow: hidden;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sectorMain p {
+  margin-top: 6px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.upText {
+  color: #ef4444;
+}
+
+.downText {
+  color: #0f9f6e;
+}
+
+.flatText {
+  color: #64748b;
+}
+
+.loadingState,
+.errorState {
+  display: flex;
+  min-height: 220px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 24px;
+  background: #f8fafc;
+  color: #475569;
+  text-align: center;
+}
+
+.inlineNotice {
+  margin-top: 16px;
+  color: #b45309;
+  font-size: 14px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.jumpBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pageButton {
+  height: 42px;
+  border: 1px solid rgba(226, 232, 240, 1);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111827;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.pageButton:hover {
+  background: #fff7ed;
+  transform: translateY(-1px);
+}
+
+.pageButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+}
+
+.pageIndicator {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pageInput {
+  height: 42px;
+  width: 96px;
+  border: 1px solid rgba(226, 232, 240, 1);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111827;
+  padding: 0 14px;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+}
+
+.pageInput:focus {
+  border-color: rgba(249, 115, 22, 0.65);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+.bottomMenu {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: min(520px, calc(100vw - 24px));
+  padding: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(18px);
+  transform: translateX(-50%);
+}
+
+.menuItem,
+.activeMenuItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 56px;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background: transparent;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.menuItem:hover,
+.activeMenuItem:hover {
+  transform: translateY(-1px);
+}
+
+.activeMenuItem {
+  background: linear-gradient(135deg, rgba(255, 237, 213, 0.96), rgba(255, 255, 255, 0.96));
+  color: #c2410c;
+  border-color: rgba(251, 146, 60, 0.18);
+}
+
+.menuIcon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+@media (max-width: 800px) {
+  .page {
+    padding: 16px 12px 112px;
+  }
+
+  .heroCard,
+  .boardCard {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .heroHeader,
+  .sectionHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroActions {
+    justify-content: space-between;
+  }
+
+  .sectionHint {
+    max-width: none;
+    text-align: left;
+  }
+
+  .summaryRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pageInfoRow,
+  .pagination {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .jumpBox {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .summaryRow {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomMenu {
+    bottom: 12px;
+    width: calc(100vw - 20px);
+    padding: 8px;
+  }
+
+  .sectorCard {
+    gap: 10px;
+    padding: 14px 12px;
+  }
+
+  .sectorMain {
+    gap: 8px;
+  }
+
+  .sectorIcon {
+    height: 36px;
+    width: 36px;
+    border-radius: 12px;
+    font-size: 20px;
+  }
+
+  .sectorMain h3 {
+    font-size: 15px;
+  }
+
+  .sectorMain p {
+    font-size: 12px;
+  }
+}
