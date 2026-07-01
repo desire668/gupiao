@@ -212,8 +212,9 @@
 
 .sectorMain {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column; /* ✅ 改为垂直排列，防止挤压 */
+  align-items: flex-start; /* ✅ 左对齐 */
+  gap: 6px; /* ✅ 关键：强制标题和数据之间保留 6px 间距 */
   min-width: 0;
 }
 
@@ -239,9 +240,10 @@
 }
 
 .sectorMain p {
-  margin-top: 6px;
+  margin: 0; /* ✅ 清除浏览器默认的 p 标签 margin，防止不可控的间距 */
   color: #6b7280;
   font-size: 13px;
+  line-height: 1.4; /* 增加行高 */
 }
 
 .upText {
