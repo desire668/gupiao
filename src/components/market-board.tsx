@@ -13,7 +13,7 @@ const TYPE_META: Record<
     heroTitle: string;
     badge: string;
     sectionTitle: string;
-    sectionHint: string;
+    sectionHint: string; // 类型定义要求必须有这个属性
     menuLabel: string;
     menuIcon: string;
   }
@@ -22,6 +22,7 @@ const TYPE_META: Record<
     heroTitle: "A股行业板块",
     badge: "东方财富行业榜",
     sectionTitle: "行业板块",
+    sectionHint: "查看最新行业板块数据", // ✅ 添加这一行
     menuLabel: "行业",
     menuIcon: "🏭",
   },
@@ -29,6 +30,7 @@ const TYPE_META: Record<
     heroTitle: "A股概念板块",
     badge: "东方财富概念榜",
     sectionTitle: "概念板块",
+    sectionHint: "探索热门概念板块", // ✅ 添加这一行
     menuLabel: "概念",
     menuIcon: "💡",
   },
@@ -36,6 +38,7 @@ const TYPE_META: Record<
     heroTitle: "沪深京指数",
     badge: "东方财富指数榜",
     sectionTitle: "沪深京指数",
+    sectionHint: "沪深京市场主要指数", // ✅ 添加这一行
     menuLabel: "指数",
     menuIcon: "📊",
   },
