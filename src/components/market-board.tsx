@@ -22,8 +22,6 @@ const TYPE_META: Record<
     heroTitle: "A股行业板块",
     badge: "东方财富行业榜",
     sectionTitle: "行业板块",
-    sectionHint:
-      "按东方财富行业板块分页展示，每次点击上一页、下一页或跳转页码时才请求对应页数据。",
     menuLabel: "行业",
     menuIcon: "🏭",
   },
@@ -31,8 +29,6 @@ const TYPE_META: Record<
     heroTitle: "A股概念板块",
     badge: "东方财富概念榜",
     sectionTitle: "概念板块",
-    sectionHint:
-      "按东方财富概念板块分页展示，每次点击上一页、下一页或跳转页码时才请求对应页数据。",
     menuLabel: "概念",
     menuIcon: "💡",
   },
@@ -40,8 +36,6 @@ const TYPE_META: Record<
     heroTitle: "沪深京指数",
     badge: "东方财富指数榜",
     sectionTitle: "沪深京指数",
-    sectionHint:
-      "展示沪深京核心指数，点击卡片可跳转到东方财富对应指数详情页，刷新按钮由你手动触发。",
     menuLabel: "指数",
     menuIcon: "📊",
   },
@@ -220,22 +214,6 @@ export default function MarketBoard({ initialBoard }: MarketBoardProps) {
           </div>
 
           <div className={styles.summaryRow}>
-            <article className={styles.summaryCard}>
-              <span>当前页</span>
-              <strong>{currentPage}</strong>
-            </article>
-            <article className={styles.summaryCard}>
-              <span>上涨</span>
-              <strong className={styles.upText}>{board?.summary.rising ?? 0}</strong>
-            </article>
-            <article className={styles.summaryCard}>
-              <span>下跌</span>
-              <strong className={styles.downText}>{board?.summary.falling ?? 0}</strong>
-            </article>
-            <article className={styles.summaryCard}>
-              <span>总页数</span>
-              <strong>{totalPages}</strong>
-            </article>
           </div>
         </section>
 
