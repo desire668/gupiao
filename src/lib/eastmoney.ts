@@ -63,6 +63,8 @@ const INDEX_API_BASE_URL = "https://push2.eastmoney.com/api/qt/stock/get";
 const DATA_SOURCE = "东方财富公开行情接口";
 const DATA_DISCLAIMER = "页面仅作学习与演示使用，不构成投资建议。";
 
+const FETCH_TIMEOUT_MS = 8000;
+
 const INDEX_SECIDS = [
   "1.000001",
   "0.399001",
@@ -82,6 +84,24 @@ function normalizeIndexNumber(value: number | undefined) {
   return sanitizeNumber(value) / 100;
 }
 
+async function fetchWithTimeout(
+  url: string | URL,
+  options: RequestInit = {},
+): Promise<Response> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal,
+    });
+    return response;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
 async function fetchIndexBoard(): Promise<SectorBoardPayload> {
   const items = await Promise.all(
     INDEX_SECIDS.map(async (secid) => {
@@ -89,7 +109,7 @@ async function fetchIndexBoard(): Promise<SectorBoardPayload> {
       url.searchParams.set("secid", secid);
       url.searchParams.set("fields", "f57,f58,f43,f169,f170");
 
-      const response = await fetch(url, {
+      const response = await fetchWithTimeout(url, {
         cache: "no-store",
         headers: {
           Referer: "https://quote.eastmoney.com/",
@@ -163,7 +183,7 @@ export async function fetchSectorBoard(
   url.searchParams.set("fs", TYPE_TO_FS[type]);
   url.searchParams.set("fields", "f2,f3,f4,f12,f14");
 
-  const response = await fetch(url, {
+  const response = await fetchWithTimeout(url, {
     cache: "no-store",
     headers: {
       Referer: "https://quote.eastmoney.com/",

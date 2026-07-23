@@ -50,6 +50,7 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error) {
+    console.error("东方财富数据获取失败:", error);
     const message =
       error instanceof Error ? error.message : "数据服务暂时不可用，请稍后再试。";
 
