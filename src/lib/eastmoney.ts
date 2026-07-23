@@ -103,7 +103,7 @@ async function fetchWithTimeout(
 }
 
 async function fetchIndexBoard(): Promise<SectorBoardPayload> {
-  const items = await Promise.all(
+  const results = await Promise.allSettled(
     INDEX_SECIDS.map(async (secid) => {
       const url = new URL(INDEX_API_BASE_URL);
       url.searchParams.set("secid", secid);
@@ -138,6 +138,15 @@ async function fetchIndexBoard(): Promise<SectorBoardPayload> {
       };
     }),
   );
+
+  const items: SectorItem[] = [];
+  for (const result of results) {
+    if (result.status === "fulfilled") {
+      items.push(result.value);
+    } else {
+      console.error("指数获取失败:", result.reason);
+    }
+  }
 
   const rising = items.filter((item) => item.changePercent > 0).length;
   const falling = items.filter((item) => item.changePercent < 0).length;

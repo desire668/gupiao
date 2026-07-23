@@ -202,7 +202,7 @@ export default function MarketBoard({ initialBoard }: MarketBoardProps) {
           <div className={styles.heroMeta}>
             <span>数据源：{source}</span>
             <span>刷新时间：{refreshedAt}</span>
-            <span>每页数量：20</span>
+            <span>每页数量：{board?.pageSize ?? (activeType === "index" ? 8 : PAGE_SIZE)}</span>
           </div>
           <div className={styles.summaryRow}></div>
         </section>
@@ -268,7 +268,7 @@ export default function MarketBoard({ initialBoard }: MarketBoardProps) {
           {error && hasBoard ? (
             <p className={styles.inlineNotice}>分页请求失败：{error}</p>
           ) : null}
-          <div className={styles.pagination}>
+          {activeType !== "index" && (<div className={styles.pagination}>
             <button
               type="button"
               className={styles.pageButton}
@@ -314,6 +314,7 @@ export default function MarketBoard({ initialBoard }: MarketBoardProps) {
               </button>
             </div>
           </div>
+          )}
         </section>
       </main>
       <nav className={styles.bottomMenu}>
